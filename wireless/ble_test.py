@@ -181,7 +181,7 @@ async def main():
     print("\n[INFO] Multi-connection test is commented out by default.")
     print("       Add device addresses above and uncomment to test.")
 
-    print("\n[DONE] Task 0.3 complete. Write up your findings!")
+    print("\n[DONE] Task 0.3 complete!")
 
 
 if __name__ == "__main__":
