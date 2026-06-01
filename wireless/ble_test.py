@@ -42,16 +42,6 @@ async def scan_devices(timeout: float = 5.0) -> list:
 
 # ── Part 2: Connect and explore GATT table ───────────────────────────────────
 async def connect_and_explore(address: str) -> None:
-    """
-    Connect to a BLE device and print its full GATT table:
-    Services → Characteristics → Properties → Values (if readable).
-
-    This teaches you what real BLE devices look like before you design
-    your own GATT layout in Task 0.4.
-
-    Args:
-        address: BLE MAC address string, e.g. "AA:BB:CC:DD:EE:FF"
-    """
     print(f"\n[CONNECT] Connecting to {address} ...")
 
     try:
@@ -162,7 +152,8 @@ async def main():
     # ── Step 2: Connect and explore the first device ──────────────────────
     # Pick the first discovered device. You can change this index or
     # hardcode a specific address: address = "AA:BB:CC:DD:EE:FF"
-    target = devices[0]
+    index = int(input("Please choose which peripherials to be connected by input following digit: "))
+    target = devices[index]
     print(f"\n[INFO] Targeting device: {target.name or '(unnamed)'} @ {target.address}")
     await connect_and_explore(target.address)
 
@@ -172,16 +163,15 @@ async def main():
     #
     # To run this test, uncomment the lines below and add real addresses:
     #
-    # test_addresses = [
-    #     "AA:BB:CC:DD:EE:FF",   # device 1
-    #     "11:22:33:44:55:66",   # device 2
-    # ]
+    test_addresses = [
+    #    "11:22:33:44:55:66",   # device 1
+    ]
     # await test_simultaneous_connections(test_addresses)
     #
     print("\n[INFO] Multi-connection test is commented out by default.")
     print("       Add device addresses above and uncomment to test.")
 
-    print("\n[DONE] Task 0.3 complete. Write up your findings!")
+    print("\n[DONE] Task 0.3 complete!")
 
 
 if __name__ == "__main__":
